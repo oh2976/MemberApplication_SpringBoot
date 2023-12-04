@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 public class MemberController {
     // 생성자 주입
-    private final MemberService memberService = null;
+    private final MemberService memberService;
 
 
     // 회원의 로그인, 회원가입 등 회원의 요청 처리를 하기 위한 controller이다.
@@ -29,7 +29,7 @@ public class MemberController {
         System.out.println("memberDTO" + memberDTO);
         memberService.save(memberDTO);
 
-        return "index";
+        return "login";
 
     }
 
