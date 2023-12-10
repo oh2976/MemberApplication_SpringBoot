@@ -94,4 +94,16 @@ public class MemberController {
         return "redirect:/member/" + memberDTO.getId();
     }
 
+    @GetMapping("/member/delete/{id}")
+    public String deleteById(@PathVariable Long id){
+        memberService.deleteById(id);
+        // 관리자 회원을 강퇴시키는 것이므로 삭제가 된 목록 페이지 보여줌
+        return "redirect:/member/";
+    }
+
+    @GetMapping("/member/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "index";
+    }
 }
